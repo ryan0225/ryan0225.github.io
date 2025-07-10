@@ -1,9 +1,6 @@
 .firework-particle {
   position: fixed;
-  width: 6px;
-  height: 6px;
   border-radius: 50%;
   pointer-events: none;
   z-index: 9999;
-  transition: transform 1s ease-out;
 }
