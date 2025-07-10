@@ -1,23 +1,35 @@
-document.addEventListener('click', function (e) {
-  let n = 20;
-  for (let i = 0; i < n; i++) {
+document.addEventListener('click', (e) => {
+  const particles = 20;
+  const radius = 80;
+
+  for (let i = 0; i < particles; i++) {
+    const angle = (2 * Math.PI * i) / particles;
+    const offsetX = radius * Math.cos(angle);
+    const offsetY = radius * Math.sin(angle);
+
     const particle = document.createElement('div');
-    particle.classList.add('firework-particle');
+    particle.className = 'firework-particle';
+    particle.style.left = `${e.clientX}px`;
+    particle.style.top = `${e.clientY}px`;
+
+    particle.animate([
+      {
+        transform: 'translate(0, 0)',
+        opacity: 1,
+      },
+      {
+        transform: `translate(${offsetX}px, ${offsetY}px)`,
+        opacity: 0,
+      },
+    ], {
+      duration: 800,
+      easing: 'ease-out',
+    });
+
     document.body.appendChild(particle);
-
-    const angle = Math.random() * 2 * Math.PI;
-    const radius = Math.random() * 80;
-    const x = e.clientX + radius * Math.cos(angle);
-    const y = e.clientY + radius * Math.sin(angle);
-
-    particle.style.left = e.clientX + 'px';
-    particle.style.top = e.clientY + 'px';
-    particle.style.setProperty('--x', x + 'px');
-    particle.style.setProperty('--y', y + 'px');
-    particle.style.setProperty('--i', Math.random());
 
     setTimeout(() => {
       particle.remove();
-    }, 1000);
+    }, 800);
   }
 });
