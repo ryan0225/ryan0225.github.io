@@ -1,0 +1,16 @@
+.click-ripple {
+  position: fixed;
+  border-radius: 50%;
+  background: rgba(163, 31, 52, 0.3);
+  pointer-events: none;
+  transform: scale(0);
+  animation: ripple-animation 0.5s ease-out;
+  z-index: 9999;
+}
+
+@keyframes ripple-animation {
+  to {
+    transform: scale(1);
+    opacity: 0;
+  }
+}
