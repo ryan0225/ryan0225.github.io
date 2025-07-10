@@ -1,6 +1,6 @@
-.firework-particle {
+.particle {
   position: fixed;
   border-radius: 50%;
   pointer-events: none;
-  z-index: 9999;
+  opacity: 1;
 }
