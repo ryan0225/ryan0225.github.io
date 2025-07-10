@@ -1,16 +1,18 @@
-.click-ripple {
+.firework-particle {
   position: fixed;
+  width: 6px;
+  height: 6px;
+  background: hsl(calc(360 * var(--i)), 100%, 50%);
   border-radius: 50%;
-  background: rgba(163, 31, 52, 0.3);
   pointer-events: none;
-  transform: scale(0);
-  animation: ripple-animation 0.5s ease-out;
+  transform: translate(-50%, -50%);
+  animation: explode 0.8s ease-out forwards;
   z-index: 9999;
 }
 
-@keyframes ripple-animation {
+@keyframes explode {
   to {
-    transform: scale(1);
+    transform: translate(calc(var(--x) - 50%), calc(var(--y) - 50%));
     opacity: 0;
   }
 }

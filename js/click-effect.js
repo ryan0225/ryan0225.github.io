@@ -1,15 +1,23 @@
-document.addEventListener("click", function(e) {
-  // 建立特效元素
-  const ripple = document.createElement("div");
-  ripple.className = "click-ripple";
-  document.body.appendChild(ripple);
+document.addEventListener('click', function (e) {
+  let n = 20;
+  for (let i = 0; i < n; i++) {
+    const particle = document.createElement('div');
+    particle.classList.add('firework-particle');
+    document.body.appendChild(particle);
 
-  // 計算位置與大小
-  const size = Math.max(window.innerWidth, window.innerHeight);
-  ripple.style.width = ripple.style.height = size + "px";
-  ripple.style.left = e.clientX - size/2 + "px";
-  ripple.style.top = e.clientY - size/2 + "px";
+    const angle = Math.random() * 2 * Math.PI;
+    const radius = Math.random() * 80;
+    const x = e.clientX + radius * Math.cos(angle);
+    const y = e.clientY + radius * Math.sin(angle);
 
-  // 動畫結束後移除
-  setTimeout(() => document.body.removeChild(ripple), 500);
+    particle.style.left = e.clientX + 'px';
+    particle.style.top = e.clientY + 'px';
+    particle.style.setProperty('--x', x + 'px');
+    particle.style.setProperty('--y', y + 'px');
+    particle.style.setProperty('--i', Math.random());
+
+    setTimeout(() => {
+      particle.remove();
+    }, 1000);
+  }
 });
