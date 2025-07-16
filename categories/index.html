@@ -890,6 +890,24 @@
 
 
 
+
+	<!-- 加入 Sakana Widget -->
+	<link
+	  rel="stylesheet"
+	  href="https://cdn.jsdelivr.net/npm/sakana-widget@2.7.1/lib/sakana.min.css"
+	/>
+	<div id="sakana-widget"></div>
+	<script>
+	  function initSakanaWidget() {
+	    new SakanaWidget().mount('#sakana-widget');
+	  }
+	</script>
+	<script
+	  async
+	  onload="initSakanaWidget()"
+	  src="https://cdn.jsdelivr.net/npm/sakana-widget@2.7.1/lib/sakana.min.js"
+	></script>
+
 	
 <script src="/js/build/tools/imageViewer.js" type="module"></script>
 
